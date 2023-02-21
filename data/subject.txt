@@ -1,0 +1,7 @@
+INT2002|Artificial Intelligent
+INT2004|Machine Learning
+INT2005|Web development
+INT3001|Operating System
+INT3003|Software Engineering
+INT4001|Interns
+INT 4001|Interns

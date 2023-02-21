@@ -44,7 +44,34 @@ print(dbprovider.getSubjectByCode('INT3003'))
 #Main module của ứng dụng
 from utils import printHeader, printMenu, clearScreen
 from studentscreen import studentMenuScreen
+from dbprovider import *
 #Màn hình menu chính của ứng dụng
+
+sts =[ {
+    'Code': 'PY0331',
+    'FullName':'Vũ Thanh Vân',
+    'Birthday' :'01/02/2000',
+    'Sex':0,
+    'Address':'Hà Nội',
+    'Phone':'0977999777',
+    'Email':'vvuthanhvan@gmail.com'
+},
+{'Code': 'PY0302',
+    'FullName':'Mai Thanh Long',
+    'Birthday' :'01/02/2000',
+    'Sex':0,
+    'Address':'Hà Nội',
+    'Phone':'0977999777',
+    'Email':'vvuthanhvan@gmail.com'},
+{'Code': '123456',
+    'FullName':'12345677657',
+    'Birthday' :'01/02/2000',
+    'Sex':0,
+    'Address':'Hà Nội',
+    'Phone':'0977999777',
+    'Email':'vvutwqreqrn@gmail.com'}
+]
+writeStudents(sts) 
 
 def mainMenuScreen():
     clearScreen()

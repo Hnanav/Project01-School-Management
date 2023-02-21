@@ -18,9 +18,10 @@ def writeStudent(st: dict):
 
 
 def writeStudents(sts: list):
-    with open (studentPath,'a',encoding='utf-8') as f:
-        for st in sts:line: str = f"{st['Code']}|{st['FullName']}|{st['Birthday']}|{st['Sex']}|{st['Address']}|{st['Phone']}|{st['Email']}\n"  #format string
-        f.write(line)
+    with open (studentPath,'w',encoding='utf-8') as f:
+        for st in sts:
+            line: str = f"{st['Code']}|{st['FullName']}|{st['Birthday']}|{st['Sex']}|{st['Address']}|{st['Phone']}|{st['Email']}\n"  #format string
+            f.write(line)
     
 def readStudents():
     sts1 = []
@@ -28,9 +29,8 @@ def readStudents():
         for line in f:
             if line is None:
                 break
-
-        value = line.strip().split('|')
-        st = {
+            value = line.strip().split('|')
+            st = {
             'Code': value[0],
             'FullName': value[1],
             'Birthday': value[2],
@@ -38,8 +38,8 @@ def readStudents():
             'Address': value[4],
             'Phone': value[5],
             'Email': value[6]
-        }
-        sts1.append(st)
+            }
+            sts1.append(st)
     return sts1
 
 def getStudentByCode(code:str) :

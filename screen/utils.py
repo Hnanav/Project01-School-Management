@@ -12,3 +12,7 @@ def printMenu(funcs: list):
 #Clear content in terminal/cmd
 def clearScreen():
     os.system('cls||clear')
+
+def printAllofList(lst: list):
+    for item in lst:
+        print(f"{item['Code']}\t{item['FullName']}\t{item['Birthday']}\t{item['Address']}\t{item['Phone']}\t{item['Email']}")

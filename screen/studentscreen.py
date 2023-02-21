@@ -1,8 +1,9 @@
 # Các màn hình cho module quản lý Học viên
 
 import datetime
+from turtle import clearscreen
 from dbprovider import *
-from utils import printHeader, printMenu, clearScreen
+from utils import *
 #from tasks.studenttask import writeStudent
 # Màn hình hiển thị menu của module QL Học viện
 def studentMenuScreen():
@@ -161,10 +162,39 @@ def editStudentScreen():
 
 #Xóa học viên theo mã
 def deleteStudentScreen():
-    pass
+    clearscreen()
+    printHeader('XÓA HỌC VIÊN')
+    while True:
+        code = input('Mã học viên: ')
+        if len(code) != 6:
+            print('Mã học viên phải có 6 ký tự')
+            continue
+        isExists = checkExistsStudent(code)
+        if isExists == False:
+            print('Mã học viên không tồn tại')
+            continue
+        else:
+            break
+        
+    sts = readStudents()
+    idx = None
+    for i, st in enumerate(sts):
+        sts = readStudents()
+        if st['Code'] == code:
+            sts.pop(i)
+            break
+    writeStudents(sts)
+    print('Xóa học viên thành công')
+    printAllofList(sts)
+    nextStep = input('Bạn có muốn tiếp tục xóa học viên không (Y/N)? ')
+    if(nextStep.upper() == 'Y'):
+        deleteStudentScreen()
+    studentMenuScreen()
 
 #Tìm kiếm học viên
 def searchStudentsScreen():
+    clearScreen()
+    printHeader('TÌM KIẾM HỌC VIÊN')
     sts = readStudents()
     while True:
         st_name = input('Nhập tên học viên: ')
